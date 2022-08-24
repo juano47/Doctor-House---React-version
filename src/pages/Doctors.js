@@ -50,7 +50,7 @@ function Doctors(props) {
                 onClick={handleClickLoadMore}
         >
           Load more..
-        </Button>;
+        </Button>
       </div>;
   }
 
