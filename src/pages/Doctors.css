@@ -1,5 +1,4 @@
 .doctors-container {
     display: flex;
     overflow-x: scroll;
-    width: 100%;
 }

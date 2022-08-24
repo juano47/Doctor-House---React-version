@@ -1,5 +1,8 @@
 import './App.css';
 import { Link } from 'react-router-dom';
+import Doctors from './pages/Doctors';
+import './components/Doctor.css';
+
 
 function App() {
   return (
@@ -11,8 +14,12 @@ function App() {
           paddingBottom: '1rem',
         }}
       >
-        <Link to='/doctors'>Doctors</Link> |{' '}
+        <Link to='/doctors'>Doctors</Link>
       </nav>
+      <div className='test'>
+        <Doctors size={4} loadMoreCard />
+      </div>
+
     </div>
   );
 }

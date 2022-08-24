@@ -18,7 +18,7 @@ function Doctor(doctor) {
         title={doctor.name}
       />
       <div>
-        Especialty: {doctor.specialty?.name}
+        Especialty: {doctor.specialty}
       </div>
     </Card>
   );
