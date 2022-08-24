@@ -1,4 +1,4 @@
-import {BASE_URL} from "../constants/endpoints";
+import {BASE_URL} from "./endpoints";
 import axios from "axios";
 
 const baseApi = axios.create({

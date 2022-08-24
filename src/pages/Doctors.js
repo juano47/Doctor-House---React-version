@@ -16,11 +16,11 @@ function Doctors() {
   return (
     <div>
       <h1>Doctors</h1>
-      <ul className='doctors-container' style={{ display: 'flex' }}>
+      <div className='doctors-container'>
         {doctors.map((doctor, index) => {
           return <Doctor key={index} {...doctor} />;
         })}
-      </ul>
+      </div>
     </div>
   );
 }
