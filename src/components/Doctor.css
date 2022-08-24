@@ -1,0 +1,11 @@
+.doctor-card {
+    width: 300px;
+    margin: 0.5rem;
+    flex-shrink: 0;
+}
+
+.doctor-card .doctor-image {
+    object-fit: cover;
+    object-position: 75% 0;
+    height: 250px;
+}
