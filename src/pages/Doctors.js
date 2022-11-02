@@ -5,12 +5,15 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../api/endpoints';
 import { ThemeContext } from '../App';
+import { useDispatch } from 'react-redux';
+import Footer from './footer/footer';
 
 function Doctors(props) {
   const [doctors, setDoctors] = useState([]);
   const { page, size } = props;
   const navigate = useNavigate();
   const handleClickLoadMore = () => navigate('/doctors');
+  const dispatch = useDispatch();
 
   const theme = useContext(ThemeContext);
   const styles = {
@@ -20,8 +23,12 @@ function Doctors(props) {
 
   const updateDoctors = (data) => {
     //Important: parse to JSON
-    const parsedData = JSON.parse(data);
-    setDoctors(doctors => [...doctors, parsedData]);
+    const parsedDoctor = JSON.parse(data);
+    setDoctors(doctors => [...doctors, parsedDoctor]);
+    if (parsedDoctor.favorite) {
+      //add to redux store the favorite doctor
+      dispatch({ type: 'favorites/addFavorite', payload: { doctorId: parsedDoctor.id } });
+    }
   };
 
   useEffect(() => {
@@ -41,7 +48,7 @@ function Doctors(props) {
       eventSource.close();
     };
 
-  }, []);
+  }, [page, size]);
 
   let loadMoreCardDiv;
   if (props.loadMoreCard) {
@@ -71,6 +78,7 @@ function Doctors(props) {
         </div>
         {loadMoreCardDiv}
       </div>
+      <Footer />
     </div>
   );
 }
